@@ -1,0 +1,34 @@
+buildscript {
+
+    ext.ktor_version = '1.2.2'
+
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.21'
+}
+
+group 'qitasc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "com.xenomachina:kotlin-argparser:2.0.7"
+    compile "io.ktor:ktor-server-core:$ktor_version"
+    compile "io.ktor:ktor-server-netty:$ktor_version"
+    api group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+    compile group: "org.http4k", name: "http4k-core", version: "3.163.0"
+    compile group: "org.http4k", name: "http4k-server-jetty", version: "3.163.0"
+    compile group: "org.http4k", name: "http4k-client-apache", version: "3.163.0"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
